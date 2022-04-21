@@ -15,7 +15,8 @@ export const Message: FC<MessageProps> = (props) => {
         alignSelf: direction === "incoming" ? "flex-start" : "flex-end",
         border: "1px solid black",
         padding: 5,
-        borderRadius: 5
+        borderRadius: 5,
+        marginBottom: 5
       }}
     >
       {props.children}

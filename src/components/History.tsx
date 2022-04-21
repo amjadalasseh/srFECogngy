@@ -10,8 +10,11 @@ export const History: FC = (props) => {
         border: "1px solid black",
         padding: 10,
         flexGrow: 1,
-        overflow: "auto"
+        overflowY:"auto",
+        
+        
       }}
+      id="History-id"
     >
       {props.children}
     </div>

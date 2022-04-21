@@ -1,7 +1,12 @@
-import { History } from "./components/History";
-import { Message } from "./components/Message";
-import { Input } from "./components/Input";
 
+import  store  from './redux/store';
+import { Provider } from 'react-redux';
+import { ChatBox } from "./container/ChatBox";
+import { socket} from './api'
+
+
+ 
+// const { REACT_APP_ENDPOINT_BASE_URL, REACT_APP_ENDPOINT_URL_TOKEN  } = process.env;
 /**
  * 1. Implement state management.
  * Submitting a message should let it appear in the message history as an "outgoing message"
@@ -35,24 +40,11 @@ import { Input } from "./components/Input";
  * When the message history is "full", it should automatically scroll to the bottom when new content arrives.
  */
 
-export default function App() {
+export default  function App() {
+  socket.initScoket();
   return (
-    <div
-      style={{
-        width: 300,
-        height: 400,
-        display: "flex",
-        flexDirection: "column"
-      }}
-    >
-      <History>
-        {/* TODO: replace with dynamic rendering */}
-        <Message direction="incoming">hello user</Message>
-        <Message direction="outgoing">hello bot</Message>
-      </History>
-
-      {/* TODO: send message on submit */}
-      <Input />
-    </div>
+    <Provider store={store}>
+      <ChatBox/>
+    </Provider>
   );
 }

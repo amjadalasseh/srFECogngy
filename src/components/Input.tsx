@@ -9,7 +9,6 @@ export const Input: FC<InputProps> = (props) => {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     e.stopPropagation();
-
     if (message !== "") {
       setMessage("");
       props.onSubmit?.(message);
